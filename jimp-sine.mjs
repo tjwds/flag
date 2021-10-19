@@ -18,19 +18,17 @@ export default () => ({
     const period = 85;
     this.scanQuiet(0, 0, width, height, (x, y) => {
       const workingX = Math.abs(x - 30);
-      let up = -5
+      let up = -5;
       up += (workingX % period) + 1;
       if (Math.floor(workingX / period) % 2) {
         up = period - up;
       }
       up /= -8;
       up += 5; // this is just height
-      up = Math.floor(up)
-      console.log(up)
+      up = Math.floor(up);
 
       let color = source.getPixelColor(x, y);
       this.setPixelColor(color, x, y + up);
-
     });
 
     if (isNodePattern(cb)) {
